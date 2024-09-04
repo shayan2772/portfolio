@@ -1,0 +1,92 @@
+body.dark {
+    color: #b6b2bf;
+    background-color: #323232;
+}
+
+.dark .navbar-b.navbar-reduce .navbar-toggler span {
+    background-color: #fff;
+}
+
+.dark .section-title h2 {
+    color: #ffffff;
+}
+
+.dark .navbar-b.navbar-reduce {
+    background-color: #333333;
+}
+
+.dark .navbar-reduce .logo .dark {
+    display: none;
+}
+
+.dark .navbar-reduce .logo .light {
+    display: block;
+}
+
+.dark .bg-light {
+    background-color: #2a2a2a !important;
+}
+
+.dark .navbar-b.navbar-reduce .nav-link {
+    color: #ffffff;
+}
+
+    .dark .navbar-b.navbar-reduce .nav-link.active {
+        color: #ea4343;
+    }
+
+.dark .single-counter h3 {
+    color: #fff;
+}
+
+.dark .single-counter p {
+    color: #fff;
+}
+
+.dark .lines .line {
+    background: #3c3c3cb8;
+}
+
+.dark p {
+    color: #ccc;
+}
+
+.dark h1, h2, h3, h4, h5, h6 {
+    color: #fff;
+}
+
+.dark .services {
+    background-color: #333333;
+}
+
+    .dark .services .services-title-icon .services-title {
+        color: #fff;
+    }
+
+    .dark .services .services-content .text {
+        color: #ccc;
+    }
+
+.dark .contact-details h6 {
+    color: #fff;
+}
+
+.dark .social-icons li a {
+    color: #fff;
+}
+
+.dark .blogs .blog-item .blog-content {
+    background: #323232;
+}
+
+    .dark .blogs .blog-item .blog-content h3 {
+        color: #fff;
+    }
+
+    .dark .blogs .blog-item .blog-content p {
+        border-bottom: 1px solid #5c5c5c8c;
+    }
+
+.dark .footer-area {
+    background-color: #222222;
+}
