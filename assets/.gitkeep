@@ -1,0 +1,17 @@
+# Assets Directory
+This directory contains all the media assets for the portfolio website.
+
+## Required Files:
+- profile.jpg - Your professional headshot (circular crop recommended)
+- logos/ - Company and project logos
+- thumbs/ - Project thumbnail images
+
+## Image Specifications:
+- profile.jpg: 400x400px minimum, square aspect ratio
+- Project thumbnails: 600x400px recommended
+- Company logos: SVG preferred, or PNG with transparent background
+
+## TODO:
+- [ ] Add your actual profile photo as profile.jpg
+- [ ] Add company logos to logos/ directory
+- [ ] Add project screenshots/thumbnails to thumbs/ directory
