@@ -3,6 +3,7 @@ This directory contains all the media assets for the portfolio website.
 
 ## Required Files:
 - profile_picture.JPG - Your professional headshot (circular crop recommended)
+- favicon.svg - Website favicon with "SA" initials (created)
 - logos/ - Company and project logos
 - thumbs/ - Project thumbnail images
 
@@ -13,5 +14,6 @@ This directory contains all the media assets for the portfolio website.
 
 ## TODO:
 - [x] Profile photo updated to profile_picture.JPG
+- [x] Favicon created with "SA" initials
 - [ ] Add company logos to logos/ directory
 - [ ] Add project screenshots/thumbnails to thumbs/ directory

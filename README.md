@@ -93,6 +93,7 @@ All personal information is extracted from your resume and integrated into:
 Search for "TODO" comments in the code to find items that need your attention:
 - [x] Download CV buttons removed completely
 - [x] Profile image updated to profile_picture.JPG
+- [x] Favicon added with "SA" initials
 
 ### Contact & Communication
 - **Email**: Direct mailto link with pre-filled subject and body for project inquiries
