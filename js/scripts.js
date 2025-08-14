@@ -17,6 +17,7 @@ class PortfolioApp {
         this.setupParticles();
         // Contact form removed - using direct email and WhatsApp links
         this.setupNavHighlight();
+        this.updateCurrentYear();
     }
 
     // Theme Toggle Functionality
@@ -24,10 +25,10 @@ class PortfolioApp {
         const themeToggle = document.getElementById('theme-toggle');
         const darkIcon = document.getElementById('theme-toggle-dark-icon');
         const lightIcon = document.getElementById('theme-toggle-light-icon');
-        
+
         // Check for saved theme preference or default to 'dark'
         const currentTheme = localStorage.getItem('theme') || 'dark';
-        
+
         if (currentTheme === 'dark') {
             document.documentElement.classList.add('dark');
             darkIcon.classList.add('hidden');
@@ -57,7 +58,7 @@ class PortfolioApp {
     setupMobileMenu() {
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-        
+
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
@@ -74,12 +75,12 @@ class PortfolioApp {
     // Scroll Progress Bar
     setupScrollProgress() {
         const scrollProgress = document.getElementById('scroll-progress');
-        
+
         window.addEventListener('scroll', () => {
             const scrollTop = window.pageYOffset;
             const docHeight = document.body.scrollHeight - window.innerHeight;
             const scrollPercent = (scrollTop / docHeight) * 100;
-            
+
             scrollProgress.style.width = scrollPercent + '%';
         });
     }
@@ -87,13 +88,13 @@ class PortfolioApp {
     // Smooth Scrolling for Navigation Links
     setupSmoothScrolling() {
         const navLinks = document.querySelectorAll('.nav-link');
-        
+
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
-                
+
                 if (targetSection) {
                     const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
                     window.scrollTo({
@@ -140,13 +141,13 @@ class PortfolioApp {
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const filter = button.getAttribute('data-filter');
-                
+
                 // Update active button
                 filterButtons.forEach(btn => {
                     btn.classList.remove('active', 'bg-gradient-to-r', 'from-primary-600', 'to-accent-600', 'text-white');
                     btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
                 });
-                
+
                 button.classList.add('active', 'bg-gradient-to-r', 'from-primary-600', 'to-accent-600', 'text-white');
                 button.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
 
@@ -154,7 +155,7 @@ class PortfolioApp {
                 projectCards.forEach(card => {
                     const categories = card.getAttribute('data-category').split(' ');
                     const shouldShow = filter === 'all' || categories.includes(filter);
-                    
+
                     if (shouldShow) {
                         card.style.display = 'block';
                         setTimeout(() => {
@@ -221,7 +222,7 @@ class PortfolioApp {
         const initParticles = () => {
             particles = [];
             const particleCount = Math.min(50, Math.floor(canvas.width * canvas.height / 15000));
-            
+
             for (let i = 0; i < particleCount; i++) {
                 particles.push(new Particle());
             }
@@ -235,7 +236,7 @@ class PortfolioApp {
             }
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+
             particles.forEach(particle => {
                 particle.update();
                 particle.draw();
@@ -304,7 +305,7 @@ class PortfolioApp {
                     navLinks.forEach(link => {
                         link.classList.remove('text-primary-600', 'dark:text-primary-400');
                         link.classList.add('text-gray-700', 'dark:text-gray-300');
-                        
+
                         if (link.getAttribute('href') === `#${sectionId}`) {
                             link.classList.add('text-primary-600', 'dark:text-primary-400');
                             link.classList.remove('text-gray-700', 'dark:text-gray-300');
@@ -316,6 +317,15 @@ class PortfolioApp {
 
         window.addEventListener('scroll', highlightNav);
         highlightNav(); // Initial call
+    }
+
+    // Update Current Year in Footer
+    updateCurrentYear() {
+        const currentYearElement = document.getElementById('current-year');
+        if (currentYearElement) {
+            const currentYear = new Date().getFullYear();
+            currentYearElement.textContent = currentYear;
+        }
     }
 }
 
@@ -415,7 +425,7 @@ const enhanceAccessibility = () => {
         announcement.className = 'sr-only';
         announcement.textContent = message;
         document.body.appendChild(announcement);
-        
+
         setTimeout(() => {
             document.body.removeChild(announcement);
         }, 1000);
@@ -440,13 +450,13 @@ const enhanceAccessibility = () => {
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize main app
     new PortfolioApp();
-    
+
     // Apply performance optimizations
     optimizePerformance();
-    
+
     // Enhance accessibility
     enhanceAccessibility();
-    
+
     // Add custom CSS for keyboard navigation
     const style = document.createElement('style');
     style.textContent = `
