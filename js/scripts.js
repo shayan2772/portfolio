@@ -374,7 +374,7 @@ const optimizePerformance = () => {
 
     // Preload critical resources
     const preloadLinks = [
-        './assets/profile.jpg'
+        './assets/profile_picture.JPG'
         // Add more critical resources here
     ];
 

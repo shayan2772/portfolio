@@ -91,8 +91,8 @@ All personal information is extracted from your resume and integrated into:
 
 ### TODO Items
 Search for "TODO" comments in the code to find items that need your attention:
-- [ ] Add actual resume download link (currently disabled buttons)
-- [ ] Replace profile.jpg with your photo
+- [x] Download CV buttons removed completely
+- [x] Profile image updated to profile_picture.JPG
 
 ### Contact & Communication
 - **Email**: Direct mailto link with pre-filled subject and body for project inquiries
@@ -102,8 +102,9 @@ Search for "TODO" comments in the code to find items that need your attention:
 
 ### External Links Removed
 All external project links, GitHub links, and social media links (except LinkedIn and WhatsApp) have been removed:
-- Project cards now show descriptive labels instead of "Live Demo" and "GitHub" buttons
-- Download CV buttons are disabled with visual indication
+- Project cards now show descriptive labels instead of "Live Demo", "GitHub", and "Case Study" buttons
+- Download CV buttons removed completely from hero and about sections
+- Twitter/X icon removed from footer
 - Social media icons in footer are grayed out (except LinkedIn which remains active)
 - Contact form replaced with direct email and WhatsApp buttons
 
