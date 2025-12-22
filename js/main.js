@@ -74,28 +74,58 @@ gsap.utils.toArray('.project-card').forEach(card => {
     });
 });
 
-// Magnetic Buttons (Optional Polish)
-const buttons = document.querySelectorAll('a[href^="#"], button');
-buttons.forEach(btn => {
+// --- Skill Tree Interaction ---
+const skillNodes = document.querySelectorAll('.skill-node');
+
+skillNodes.forEach(node => {
+    node.addEventListener('mouseenter', () => {
+        gsap.to(node, { scale: 1.1, duration: 0.3, ease: "back.out(1.7)" });
+    });
+
+    node.addEventListener('mouseleave', () => {
+        gsap.to(node, { scale: 1, duration: 0.3 });
+    });
+});
+
+
+// --- Custom Cursor & Magnetic Interactions ---
+const cursor = document.getElementById('cursor');
+const follower = document.getElementById('cursor-follower');
+const magneticButtons = document.querySelectorAll('a, button, .bento-card, .project-card, .skill-node');
+
+// Move Cursor
+document.addEventListener('mousemove', (e) => {
+    gsap.to(cursor, { x: e.clientX - 8, y: e.clientY - 8, duration: 0.1 });
+    gsap.to(follower, { x: e.clientX - 20, y: e.clientY - 20, duration: 0.3 });
+});
+
+// Magnetic Effect
+magneticButtons.forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+        gsap.to(cursor, { scale: 0, duration: 0.2 });
+        gsap.to(follower, { scale: 1.5, borderColor: 'rgba(255, 255, 255, 0.8)', duration: 0.2 });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+        gsap.to(cursor, { scale: 1, duration: 0.2 });
+        gsap.to(follower, { scale: 1, borderColor: 'rgba(255, 255, 255, 0.3)', x: 0, y: 0, duration: 0.2 });
+        gsap.to(btn, { x: 0, y: 0, duration: 0.2 });
+    });
+
     btn.addEventListener('mousemove', (e) => {
         const rect = btn.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
 
-        gsap.to(btn, {
-            duration: 0.3,
-            x: x * 0.1,
-            y: y * 0.1,
-            ease: 'power2.out'
-        });
-    });
-
-    btn.addEventListener('mouseleave', () => {
-        gsap.to(btn, {
-            duration: 0.3,
-            x: 0,
-            y: 0,
-            ease: 'power2.out'
-        });
+        // Move the button slightly towards the cursor
+        gsap.to(btn, { x: x * 0.2, y: y * 0.2, duration: 0.2 });
+        // Move the follower towards the cursor more strongly
+        gsap.to(follower, { x: e.clientX - 20, y: e.clientY - 20, duration: 0.1 });
     });
 });
+
+// Hide default cursor
+if (window.matchMedia("(pointer: fine)").matches) {
+    document.body.style.cursor = 'none';
+    magneticButtons.forEach(btn => btn.style.cursor = 'none');
+}
